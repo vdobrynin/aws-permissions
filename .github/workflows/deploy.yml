@@ -68,14 +68,14 @@ jobs:
       - name: Get AWS permissions
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::192988580965:role/GitHubPractice63
+          role-to-assume: arn:aws:iam::192988580965:role/GitHub63
           aws-region: us-east-1
       - name: Deploy site
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
         # uses: ./.github/actions/deploy-s3-javascript
         with:
-          bucket: gha-security-hosting-63practice
+          bucket: gha-security-hosting-practice63
           dist-folder: ./dist
           # bucket-region: us-east-2
       - name: Output information
