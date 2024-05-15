@@ -68,12 +68,9 @@ jobs:
       - name: Get AWS permissions
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          managed-session-policies: |
-            arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
-            arn:aws:iam::aws:policy/AmazonS3OutpostsReadOnlyAccess
         #   audience: sts.amazonaws.com
           aws-region: us-east-1
-        #   role-to-assume: arn:aws:iam::192988580965:role/GitHub63
+          role-to-assume: arn:aws:iam::192988580965:role/GitHub63
       - name: Deploy site
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
