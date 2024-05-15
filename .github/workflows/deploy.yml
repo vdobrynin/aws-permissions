@@ -75,7 +75,7 @@ jobs:
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
         with:
-          bucket: arn:aws:s3:::gha-aws-security-practice63
+          bucket: gha-aws-security-practice63
           dist-folder: ./dist
       - name: Output information
         run: |
