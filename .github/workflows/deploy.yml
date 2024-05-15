@@ -50,9 +50,9 @@ jobs:
           name: dist-files
           path: dist
   deploy:
-    # permissions:
-    #   id-token: write
-    #   contents: read
+    permissions:
+      id-token: write
+      contents: read
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -68,9 +68,10 @@ jobs:
       - name: Get AWS permissions
         uses: aws-actions/configure-aws-credentials@v4
         with:
-        #   audience: sts.amazonaws.com
+          audience: sts.amazonaws.com
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::192988580965:role/GitHub63
+          role-session-name: MySessionName
       - name: Deploy site
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
